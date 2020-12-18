@@ -30,3 +30,9 @@
 *.exe
 *.out
 *.app
+
+# Keil stuff
+Listings/*
+Objects/*
+main.uvopt
+main.uvgui.*

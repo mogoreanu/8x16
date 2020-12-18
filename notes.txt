@@ -1,0 +1,114 @@
+https://www.eevblog.com/forum/microcontrollers/how-to-find-info-on-a-(chinese)-micro-controller/
+http://www.stcmicro.com/rjxz.html
+
+STC 15F2K60S2
+28I-PDIP40
+1845HVV065.XD
+
+STC The program Flash in user program area can not be used as EEPROM., but there are special EEPROM
+15 STC 1T 8051 MCU, Speed is 8~12 times faster than the traditional 8051 in the same working frequency
+F : Operating Voltage 5.5V~4.2V
+2K SRAM: 2K = 2048 E\WHV
+60 Program space, e.g. 60:60KB
+S2˖ 2 UARTs (can be used simultaneously)ˈ SPIˈ Internal EEPROMˈ  A/D Converter(PWM also can be used as DAC)ˈ  CCP/PWM/PCA
+
+28 : Up to 28MHz
+I : Industrial, -40ć-85ć
+PDIP 40
+
+In Keil C development environment, select the Intel 8052 to compiling and only contain < reg51.h > as header file
+
+Type Program Memory
+STC15F/L2K60S2 0000H~0EFFFH (60K)
+
+STC15F2K60S2 on-chip RAM SRAM (Byte) 2K (256 <idata> + 1792 <xdata>) on-chip expanded RAM 1792 
+Can 64K bytes external expanded RAM be accessed - Yes
+
+file://192.168.5.2/data/mogo/8x16game/STC15F2K60S2-en.pdf#page=841&zoom=100,0,0
+About STC MCU Compiler/Assembler :
+1. Any traditional compiler / assembler and the popular Keil C51 are suitable for STC MCU.
+2. For selection MCU body, the traditional compiler / assembler, you can choose Intel's 8052 / 87C52 / 87C52
+/ 87C58 or Philips's P87C52 / P87C54/P87C58 in the traditional environment, in Keil environment, you
+can choose the types in front of the proposed or download the STC chips database file (STC.CDB) from the
+STC official website
+
+https://www.eevblog.com/forum/microcontrollers/i-am-exploring-stc-8051-mcu-and-writing-up/
+
+If you are just playing around I would suggest IAP15W4K61S4-30I-PDIP40, which is the flagship of their entire product line, pin-to-pin compatible with other STC15 chips in DIP-40 package, supports on-chip debug, and have Von Newmann-connected internal ROM (through the use of EEPROM access registers)
+Or if you are okay with a bit less than the best, I can send you a IAP15L2K61S2-28I-PDIP40 - the extra I got from the sample order. That chip runs only at 3.3V (instead of 2.7-5.5V range for the STC15W variant,) have 2 UARTs instead of 4 and half the RAM.
+
+https://www.ebay.com/itm/STC-Tool-U8W-Download-Programming-ISP-Download-Programming-of-Types-of-STC-MCU-/312876323977
+
+
+Checking target MCU ... 
+  MCU type: STC15F2K60S2
+  F/W version: 7.2.5S
+
+Current H/W Option:
+  . Current system clock source is internal IRC oscillator
+  . IRC frequency: 23.999MHz
+  . Oscillator gain is HIGH
+  . Wakeup Timer frequency: 36.475KHz
+  . Do not detect the level of P3.2 and P3.3 next download
+  . Power-on reset, use the extra power-on delay
+  . RESET pin behaves as I/O pin
+  . Reset while detect a Low-Voltage
+  . Thresh voltage level of the built-in LVD : 3.82 V
+  . Inhibit EEPROM operation under Low-Voltage
+  . Hardware do not enable Watch-Dog-Timer
+  . Watch-Dog-Timer pre-scalar : 256
+  . Watch-Dog-Timer stop count in idle mode
+  . Program can modify the Watch-Dog-Timer scalar
+  . Do not erase user EEPROM area at next download
+  . Do not control 485 at next download
+  . Do not check user password next download
+  . TXD is independent IO
+  . TXD pin as quasi-bidirectional mode after reset
+  . P2.0 output HIGH level after reset
+  . Reference voltage: 1231 mV (Range: 1150~1320mV)
+  . Testing time: 2018-11-16
+
+  . MCU type: STC15F2K60S2
+  F/W version: 7.2.5S
+
+
+  Complete !(2020-11-16 00:58:19)
+
+Reading eeprom
+https://github.com/grigorig/stcgal/issues/7
+https://embdev.net/topic/404939
+https://github.com/grigorig/stcgal/issues/18
+
+https://www.eevblog.com/forum/microcontrollers/i-am-exploring-stc-8051-mcu-and-writing-up/
+
+GOOD!
+http://embedded-lab.com/blog/exploring-stc-8051-microcontrollers/
+https://www.youtube.com/watch?v=nHCjFw2TS4M
+
+Blinky
+https://github.com/zerog2k/stc_blinky
+
+
+TODO:
+Set p0, p1, p2, p3, p4, p5 to be output pins
+Set Reset (P5.4) to be IO
+
+A set of demo projects in assembly and C
+https://github.com/RachitThukral/8051
+
+stcgal - STC MCU ISP flash tool
+https://github.com/grigorig/stcgal
+
+https://www.8051projects.net/
+
+http://sdcc.sourceforge.net/
+
+UART Rewire the buttons to free pins.
+
+https://www.8051projects.net/t28908/8051-discussion-forum/software-programming-techniques-developing-serial-interface-for-8052.htm
+
+Video:
+https://www.youtube.com/watch?v=DkmHJPhdQ-Q
+
+
+Tested with CP2102 and CH341a USB to serial adapters.
