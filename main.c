@@ -1,5 +1,6 @@
 // #include <REG51.H>
 #include "stc15f2k60s2.h"
+#include "types.h"
 
 /*
 M0    M1
@@ -62,6 +63,7 @@ void Delay1000ms()		//@27.000MHz
 }
 
 int row = 0;
+int col = 0;
 
 void SetRow(int v) {
 	switch (row) {
@@ -89,6 +91,19 @@ void SetRow(int v) {
 	}
 }
 
+void SetCol(int v) {
+	switch (col) {
+		case 0: P24 = v; break;
+		case 1: P26 = v; break;
+		case 2: P44 = v; break;
+		case 3: P21 = v; break;
+		case 4: P42 = v; break;
+		case 5: P22 = v; break;
+		case 6: P35 = v; break;
+		case 7: P17 = v; break;
+	}
+}
+
 void NextRow() {
 	SetRow(0);
 	++row;
@@ -106,6 +121,20 @@ void PrevRow() {
 	SetRow(1);
 }
 
+void NextCol() {
+	SetCol(1);
+	++col;
+	if (col == 8) { col = 0; }
+	SetCol(0);
+}
+
+void PrevCol() {
+	SetCol(1);
+	if (col == 0) { col = 7; }
+	else { --col; }
+	SetCol(0);
+}
+
 void Sleep1s() {
 	Delay1000ms();
 	if (P36 == 0) {  // Down
@@ -114,19 +143,20 @@ void Sleep1s() {
 	if (P32 == 0) {  // Up
 		PrevRow();
 	}
+	if (P33 == 0) {  // Right
+		NextCol();
+	}
+	if (P37 == 0) {  // Left
+		PrevCol();
+	}
 }
-
-typedef unsigned char uint8;
-typedef signed char int8;
-typedef unsigned int uint16;
-typedef signed int int16;
-typedef unsigned long int uint32;
-typedef signed long int int32;
 
 void main(void) {
   OffAll();
-	row = 0;
+	row = 2;
+	col = 5;
 	SetRow(1);
+	SetCol(0);
 	
 	// Drive buttons up.
 	P30 = 1;  // OK
@@ -137,24 +167,23 @@ void main(void) {
 	P37 = 1;  // Left
 	
   while (1) {
-		P24 = 0;  // Col 1
-		Sleep1s(); 
-		P26 = 0;  // Col 2
+		// P24 = 0;  // Col 1
+		// Sleep1s(); 
+		// P26 = 0;  // Col 2
+		// Sleep1s();
+		// P44 = 0;  // Col 3
+		// Sleep1s();
+		// P21 = 0;  // Col 4
+		// Sleep1s();
+		// P42 = 0;  // Col 5
+		// Sleep1s();
+		// P22 = 0;  // Col 6
+		// Sleep1s();
+		// P35 = 0;  // Col 7
+		// Sleep1s();
+		// P17 = 0;  // Col 8
 		Sleep1s();
-		P44 = 0;  // Col 3
-		Sleep1s();
-		P21 = 0;  // Col 4
-		Sleep1s();
-		P42 = 0;  // Col 5
-		Sleep1s();
-		P22 = 0;  // Col 6
-		Sleep1s();
-		P35 = 0;  // Col 7
-		Sleep1s();
-		P17 = 0;  // Col 8
-		Sleep1s();
-    OffCols();
-		// NextRow();
+    //OffCols();
   }
 }
 

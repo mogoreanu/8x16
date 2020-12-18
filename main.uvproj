@@ -386,6 +386,21 @@
               <FileType>5</FileType>
               <FilePath>.\stc15f2k60s2.h</FilePath>
             </File>
+            <File>
+              <FileName>README.md</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\README.md</FilePath>
+            </File>
+            <File>
+              <FileName>notes.txt</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\notes.txt</FilePath>
+            </File>
+            <File>
+              <FileName>types.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\types.h</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

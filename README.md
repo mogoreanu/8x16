@@ -33,9 +33,9 @@ USB Serial converters tested:
 
 # Development environment setup
 
-Unfortunatelly compilers that work with Intel 8051 are scarce and the official STC documentation recommends Keil uVision
+Unfortunatelly compilers that work with Intel 8051 are scarce and the official STC documentation recommends Keil uVision. The development environment will have to be 
 
-* Install Keil uVision V5.27.1.0 or later for Intel 8051. It will include the C compiler - C51 and the Intel 8051 assembly compiler A51.
+* Install Keil uVision C51, the version for 8051 microcontrollers. The version used in this project is V5.27.1.0. It will include the C compiler - C51 and the Intel 8051 assembly compiler A51.
 * Download "STC ISP programming software (v6.86)" from http://www.stcmicro.com/rjxz.html
 * Open "Keil ICE Settings" tab, Add MCU type to Keil
 
@@ -51,3 +51,5 @@ https://datasheetspdf.com/pdf-file/1316710/STC/STC15F2K60S2/1
 Software downloads
 http://www.stcmicro.com/rjxz.html
 
+Keil
+https://www.keil.com/demo/eval/c51.htm
