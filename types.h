@@ -8,4 +8,7 @@ typedef signed int int16;
 typedef unsigned long int uint32;
 typedef signed long int int32;
 
+#define true 1
+#define false 0
+
 #endif  // TYPES_H

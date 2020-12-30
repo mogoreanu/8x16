@@ -15,6 +15,21 @@ sfr SP          =   0x81;
 sfr DPL         =   0x82;
 sfr DPH         =   0x83;
 
+/*
+Ports are bit-addressable.
+    CLR     P1.0
+    SETB    P1.0
+    CLR     P1.1
+
+By default the prots are econfigured in a quasi-bidirectional mode,
+Other available modes:
+M0    M1
+0     0     quasi-bidirectional, pull up 270uA, pull down 20mA
+0     1     input only, high impedance
+1     0     push-pull, 20mA pull-up / pull-down
+1     1     open drain, no internal pull-up, needs external pullup.
+*/
+
 sfr P0          =   0x80;
 sbit P00        =   P0^0;
 sbit P01        =   P0^1;
