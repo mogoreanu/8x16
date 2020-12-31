@@ -22,6 +22,11 @@ S2? 2 UARTs (can be used simultaneously)' SPI' Internal EEPROM'  A/D Converter(P
 I : Industrial, -40c-85c
 PDIP 40
 
+The MCU, according to the spec has the following memory:
+* 2048 bytes SRAM 
+* 256 byte scratch-pad RAM
+* 1792 bytes of auxiliary RAM
+
 # Hardware required
 
 * 8x16 game
@@ -39,6 +44,46 @@ Unfortunatelly compilers that work with Intel 8051 are scarce and the official S
 * Download "STC ISP programming software (v6.86)" from http://www.stcmicro.com/rjxz.html
 * Open "Keil ICE Settings" tab, Add MCU type to Keil
 
+# Hardware tweaks
+
+1. Capacitors at the MCU power ports. 
+   The spec asks for a 47uF electrolytic and a 0.1uF ceramic capacitor at the power input of the MCU, need to add those.
+1. Reroute OK and Reset buttons to empty pins to free up UART0 for programming and debug output.
+
+Board layout
+
+ R4+  - P00       P45 - R1+
+ R6+  - P01       P27 - R3+
+ R7+  - P02       P26 - C1-
+ R5+  - P03       P25 - D1-
+ R2+  - P04       P24 - C0-
+ R8+  - P05       P23 - D0-
+ R11+ - P06       P22 - C5-
+ R9+  - P07       P21 - C3-
+      - P10       P20 - R0+
+ R14+ - P11       P44 - C2-
+ R13+ - P12       P42 - C4-
+ R10+ - P13       P41 - D2-
+ R12+ - P14       P37 - Left
+      - P15       P36 - Down
+      - P16       P35 - C6-
+ C7-  - P17       P34 -
+ R15+ - P54       P33 - Right
+ 5v   - VCC       P32 - Up
+ Spkr - P55       P31 - Rst
+ 0v   - GND       P30 - OK
+
+ Rx - Row number x in the dot matrix display, X in [0, 15]. Rows are positive
+ Cy - Column number y in the dot matrix display, Y in [0, 7]. Clumns are negative
+ Dz - Digit number z, z in [0, 2]. Digit "rows" are negative, thank you.
+ 
+ Each digit has the following layout corresponding to the dot matrix columns:
+              Col 6
+     Col 5              Col 0
+              Col 4
+     Col 2              Col 3
+              Col 1
+ 
 # Links
 
 Stripped-down datasheet

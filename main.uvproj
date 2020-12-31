@@ -401,6 +401,16 @@
               <FileType>5</FileType>
               <FilePath>.\types.h</FilePath>
             </File>
+            <File>
+              <FileName>hw_driver.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hw_driver.h</FilePath>
+            </File>
+            <File>
+              <FileName>hw_driver.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\hw_driver.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>
